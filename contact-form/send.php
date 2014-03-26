@@ -2,7 +2,7 @@
 
 
 //Your e-mail address goes here:
-$to = '<juul.arthur.rudihagen@gmail.com>';
+$to = '<juularthur92@gmail.com>';
 //
 
 
