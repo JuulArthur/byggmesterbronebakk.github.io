@@ -48,7 +48,7 @@ jQuery(document).ready(function(){
 		//start the ajax
 		$.ajax({
 			//this is the php file that processes the data and send mail
-			url: "https://mandrillapp.com/api/1.0/messages/send.json",
+			url: "http://mandrillapp.com/api/1.0/messages/send.json",
 
 			//GET method is used
 			type: "POST",
