@@ -45,34 +45,19 @@ jQuery(document).ready(function(){
 		//show the loading sign
 		$('.loading').show();
 
-		//start the ajax
-		$.ajax({
-			//this is the php file that processes the data and send mail
-			url: "https://mandrillapp.com/api/1.0/messages/send.json",
+		var m = new mandrill.Mandrill('KXaPKsnltOmpYNymwVEmIA');
+		var params = {
+    "message": {
+        "from_email": email,
+        "to":[{"email":"juularthur92@gmail.com"}],
+        "subject": subject,
+        "text": comment
+    }
+	};
 
-			//GET method is used
-			type: "POST",
-
-			data: {
-		    ‘key’: ‘KXaPKsnltOmpYNymwVEmIA’,
-		    ‘message’: {
-		      ‘from_email’: email,
-		      ‘to’: [
-		          {
-		            ‘email’: ‘juularthur92@gmail.com’,
-		            ‘name’: name,
-		            ‘type’: ‘to’
-		          },
-		        ],
-		      ‘autotext’: ‘true’,
-		      ‘subject’: subject,
-		      ‘html’: comment
-		    }
-		  }
-		}).done(function(response) {
-   	$('.contact-form').hide(600);
-
-		//show the success message
-		$('.form-success').fadeIn('slow');
- 	});
+	  m.messages.send(params, function(res) {
+        log(res);
+    }, function(err) {
+        log(err);
+    });
 });
