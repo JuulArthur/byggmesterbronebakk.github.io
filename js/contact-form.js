@@ -44,7 +44,7 @@ jQuery(document).ready(function(){
 
 		//show the loading sign
 		$('.loading').show();
-
+		console.log("jeg er her jeg")
 		var m = new mandrill.Mandrill('KXaPKsnltOmpYNymwVEmIA');
 		var params = {
     "message": {
